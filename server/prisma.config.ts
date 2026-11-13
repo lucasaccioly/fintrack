@@ -4,6 +4,7 @@ import { defineConfig } from "prisma/config";
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: { path: "prisma/migrations" },
-  // not env(): `prisma generate` must work without a DB (CI install, Vercel build step order)
-  datasource: { url: process.env.DATABASE_URL ?? "" },
+  // CLI only (migrations). Prefer Neon's direct URL: migrations should not go through the pooler.
+  // Not env(): `prisma generate` must also work with no DB configured (CI install, postinstall).
+  datasource: { url: process.env.DATABASE_URL_UNPOOLED ?? process.env.DATABASE_URL ?? "" },
 });

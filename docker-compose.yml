@@ -1,0 +1,14 @@
+# Alternative to `npm run db` for machines with Docker.
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fintrack
+    ports: ["54329:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./server/scripts/create-test-db.sql:/docker-entrypoint-initdb.d/1.sql
+volumes:
+  pgdata:

@@ -9,3 +9,5 @@ server/.pgdata
 .superpowers
 coverage
 .pg.log
+.api.log
+.web.log

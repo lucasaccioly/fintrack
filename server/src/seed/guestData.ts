@@ -82,7 +82,8 @@ export async function seedGuestData(tx: Tx, userId: string) {
   }
   await tx.transaction.createMany({ data: rows });
 
-  const budgets: Record<string, number> = { Alimentação: 120000, Transporte: 60000, Lazer: 40000, Compras: 50000 };
+  // Limits chosen so the demo shows all three budget states (ok / warning / over).
+  const budgets: Record<string, number> = { Alimentação: 160000, Transporte: 100000, Lazer: 40000, Compras: 60000 };
   await tx.budget.createMany({
     data: Object.entries(budgets).map(([cat, limit]) => ({
       userId,

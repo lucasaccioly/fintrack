@@ -1,0 +1,13 @@
+{
+  "name": "fintrack",
+  "private": true,
+  "workspaces": ["server", "web"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "concurrently -n db,api,web -c blue,green,magenta \"npm run db -w server\" \"npm run dev -w server\" \"npm run dev -w web\"",
+    "test": "npm test -w server && npm test -w web",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "build": "npm run build -w server && npm run build -w web"
+  },
+  "devDependencies": { "concurrently": "^10.0.7" }
+}

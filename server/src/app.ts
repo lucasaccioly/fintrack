@@ -6,6 +6,7 @@ import { categoriesRouter } from "./categories/routes.js";
 import { authRouter } from "./auth/routes.js";
 import { cronRouter } from "./cron/routes.js";
 import { errorHandler } from "./errors.js";
+import { transactionsRouter } from "./transactions/routes.js";
 
 export function createApp() {
   const app = express();
@@ -24,6 +25,7 @@ export function createApp() {
   const routes: [string, express.Router][] = [
     ["/accounts", accountsRouter],
     ["/categories", categoriesRouter],
+    ["/transactions", transactionsRouter],
   ];
   for (const [path, router] of routes) api.use(path, requireAuth, router);
 

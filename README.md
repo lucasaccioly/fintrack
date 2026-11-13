@@ -11,7 +11,7 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma_7-2D3748?logo=prisma&logoColor=white)
 
-**[🔗 Acessar a demo](#demo)** · clique em **"Entrar como visitante"** para explorar com dados de exemplo, sem cadastro.
+**[🔗 Acessar a demo](https://fintrack-amber-pi.vercel.app)** · clique em **"Entrar como visitante"** para explorar com dados de exemplo, sem cadastro.
 
 <img src="docs/screenshots/dashboard.png" alt="Dashboard do FinTrack" width="900" />
 
@@ -93,7 +93,9 @@ npm run dev -w web                   # terminal 3: app em http://localhost:5173
 
 > Com Docker, `docker compose up -d` substitui o primeiro comando.
 
-## <a id="demo"></a>🌐 Deploy
+## 🌐 Deploy
+
+Demo: **https://fintrack-amber-pi.vercel.app**
 
 Publicado na **Vercel** com banco **Neon** (PostgreSQL serverless). Variáveis de ambiente: `DATABASE_URL`, `JWT_SECRET`, `CRON_SECRET`. As migrações rodam no build (`npm run vercel-build`) e a limpeza de visitantes roda via Vercel Cron.
 
